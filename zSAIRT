@@ -1,0 +1,105 @@
+// Amir Rahmani
+// April 15th, 2022
+// the purpose of this code is to do z-stack acquisition and real-time orthogonal view
+
+import java.io.*;
+import java.lang.String;
+import org.micromanager.api.ScriptInterface;
+import org.micromanager.api.MMPlugin;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import ij.process.*;
+import ij.ImagePlus;
+import ij.ImageStack;
+import ij.io.FileSaver;
+import ij.IJ.*;
+import ij.plugin.ZProjector;
+import ij.measure.ResultsTable;
+import ij.plugin.frame.RoiManager;
+import ij.text.*;
+import mmcorej.DoubleVector;    // For movement vector.
+import java.lang.System;        // For calculating interval.
+
+// Parameters
+int numScans = 1000;					// number of z-stack scans
+int framesPerBurst = 3;		 	//number of images taken at each z-position
+int camExposure = 30;				//exposure length in ms
+stepSize = 0.100;				  //z-distance between steps in nm
+int stepNum = 30;				 	//number of steps imaged above and below start position
+
+// file locations
+String acqName = "test-ZRT";
+rootDirName = "C:/Users/Public/Documents/Data/";
+private String getDateTime() {	
+	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+	Date date = new Date();
+	return dateFormat.format(date);
+}
+pathLoc = rootDirName + getDateTime();
+gui.message(pathLoc);
+(new File(pathLoc)).mkdir();
+
+// Acquire a single frame for width and height
+mmc.snapImage();
+snapImg = mmc.getImage();
+int width = (int) mmc.getImageWidth();
+int height = (int) mmc.getImageHeight();
+
+//Initialise acquisition
+mmc.setExposure(camExposure);
+acq = gui.getAcquisitionEngine();
+acq.clear();
+acq.enableFramesSetting(true);
+acq.setFrames(framesPerBurst, 0); // Number of frames per slice???
+acq.enableMultiPosition(true); // XYZ position???
+acq.enableZSliceSetting(false);
+acq.enableChannelsSetting(false);
+acq.enableAutoFocus(false);
+acq.setSaveFiles(false);
+acq.setRootName(pathLoc);
+
+zOrigin = Double.parseDouble(mmc.getProperty("Camera","TestProperty2"));
+zStart = zOrigin - (((double)stepSize)*stepNum);
+
+//***Acquisition***
+// Create a null z-stack 
+ImageStack stack = new ImageStack(width, height);
+int previousTiffFrame = 0;
+ImageProcessor processor = new ShortProcessor(width, height);
+	
+for(j=0; j<=numScans; j++){
+	for(i=0; i<=(2*stepNum); i++){
+		//Move stage to new position before imaging
+		pos = zStart + (double)(i*stepSize);
+		mmc.setProperty("Camera","TestProperty2",""+pos);
+		mmc.waitForSystem();
+		gui.message(mmc.getProperty("Camera","TestProperty2"));
+
+		//This is the part that creates the acquisition, dont ask how it works (requires previously created structures)
+		mmc.startSequenceAcquisition(framesPerBurst, 0, true);
+		while (mmc.getRemainingImageCount() > 0 || mmc.isSequenceRunning(mmc.getCameraDevice())) { 
+			if (mmc.getRemainingImageCount() > 0) {
+				img = mmc.popNextImage();
+				processor.setPixels(img);
+				stack.addSlice("", processor, previousTiffFrame);
+				previousTiffFrame++;
+				// Display the stacked burst
+				gui.displayImage(img);
+				mmc.waitForSystem();
+			}
+		}
+	}
+}
+//Save image stack as TIFF into directory
+path=""+pathLoc+"/CalibrationScan_"+getDateTime()+".tif";
+ImagePlus imp = new ImagePlus("I dont know what this argument does",stack);
+FileSaver fs = new FileSaver(imp);
+fs.saveAsTiffStack(path);
+
+// mmc.setProperty("Camera","TestProperty2",""+zOrigin); 		//move back to start position
+
+//Create Calibration.dat file for use in easy dhpsf
+createDatFile(stepSize, stepNum, framesPerBurst);
+
+gui.message("Completed");
