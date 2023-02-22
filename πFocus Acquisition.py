@@ -8,12 +8,12 @@ from scipy.optimize import curve_fit
 import time
 import os
 
+from picamera2 import Picamera2
+import RPi.GPIO as GPIO
+
 __author__ = 'Amir Rahmani'
 __version__ = '0.3.0'
 __license__ = 'University of Leeds'
-
-from picamera2 import Picamera2
-import RPi.GPIO as GPIO
 # -----------------------------------------------------------------------------
 def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     (x, y) = xdata
@@ -139,12 +139,12 @@ def cleanup():
     GPIO.cleanup()
 # -----------------------------------------------------------------------------    
 def AcqPiFocus(timepoints):
+    AcqPath = "/home/ponjaviclab/Documents/"+time.strftime("%Y%m%d-%H%M%S")+"_Test/
     # setup picam capture
     picam2 = Picamera2()
     picam2.configure(picam2.create_video_configuration(main={"size": (600, 400)}))
     picam2.set_controls({"ExposureTime":100, "FrameDurationLimits": (50,50), "AnalogueGain": 1})
     picam2.start()
-    AcqPath = "/home/ponjaviclab/Downloads/StepperControl/"+time.strftime("%Y%m%d-%H%M%S")+"_Lens/
     for i in range(1, timepoints):
         picam2.capture_file(AcqPath+"Test"+str(i)+".tiff")
         GCurFit(AcqPath+"Test"+str(i)+".tiff", [2,370,370,380,380,150])
