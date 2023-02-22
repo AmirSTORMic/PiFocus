@@ -6,6 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
+__author__ = 'Amir Rahmani'
+__version__ = '0.3.0'
+__license__ = 'University of Leeds'
+
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
 def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     (x, y) = xdata
