@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-@author: Amir Rahmani
-"""
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import time
 import os
+
+__author__ = 'Amir Rahmani'
+__version__ = '0.3.0'
+__license__ = 'University of Leeds'
 
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
