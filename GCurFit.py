@@ -46,8 +46,6 @@ def GCurFit(dir_path, init_guess, x1, ScanRange):
             img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
         im = np.asarray(img).astype(float)
-       
-        t = time.time()
         
         h1, w1 = im.shape
         x, y = np.meshgrid(np.arange(w1),np.arange(h1))
@@ -77,7 +75,6 @@ def GCurFit(dir_path, init_guess, x1, ScanRange):
     #plt.text(.5, 80, r'$\sigma_y=10,\ \sigma_x=10$')
     plt.grid(True)
     #plt.xlim(2, 5.5)
-    # plt.title("Calibration Curve of Image Width (Astigmatic)")
     plt.xlabel("Z Values")
     plt.ylabel("Beam Profile Width")
     plt.legend()
