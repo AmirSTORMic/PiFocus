@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import time
+import os
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-import time
-import os
 
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
@@ -139,15 +138,20 @@ def cleanup():
     GPIO.cleanup()
 # -----------------------------------------------------------------------------    
 def AcqPiFocus(timepoints):
-    AcqPath = "/home/ponjaviclab/Documents/"+time.strftime("%Y%m%d-%H%M%S")+"_Test/
+    directory = time.strftime("%Y%m%d-%H%M%S")+"_CL500mm_40X"
+    parent_dir = "/home/ponjaviclab/Downloads/" # depends on your system, you need to change this.
+    Acq_path = os.path.join(parent_dir, directory)
+    os.mkdir(Acq_path)
+    print("Directory '% s' is created" % Acq_path)
     # setup picam capture
     picam2 = Picamera2()
     picam2.configure(picam2.create_video_configuration(main={"size": (600, 400)}))
     picam2.set_controls({"ExposureTime":100, "FrameDurationLimits": (50,50), "AnalogueGain": 1})
     picam2.start()
     for i in range(1, timepoints):
-        picam2.capture_file(AcqPath+"Test"+str(i)+".tiff")
-        GCurFit(AcqPath+"Test"+str(i)+".tiff", [2,370,370,380,380,150])
+        filename = "Test"+str(i)+".tiff"
+        picam2.capture_file(Acq_path+filename)
+        GCurFit(Acq_path+filename, [2,370,370,380,380,150])
         if ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)>0)):
             StepperCtrl(NumSteps, False)
         elif ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)<0)):
