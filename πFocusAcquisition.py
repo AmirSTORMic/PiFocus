@@ -10,6 +10,21 @@ from scipy.optimize import curve_fit
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
 
+# Manage to get the MAX5216 SPI DAC to work with my Raspberry Pi
+# sudo apt-get install i2c-tools 
+# pip3 install adafruit-blinka 
+# sudo pip3 install adafruit-circuitpython-mcp4725
+
+# change the config file with: "sudo nano /boot/config.txt" and add lines to the end: 
+# dtparam=i2c_arm=on 
+# dtparam=i2c1=on  
+# exit with ctrl-x and save with y.
+
+# Next need to enable the camera and I2C interface. Go to the terminal and type and follow the: 
+# sudo raspi-config -> interfacing options. Enable camera and I2C. 
+# Want to detect the DAC to make sure it is connected. Run in terminal: 
+# sudo i2cdetect -y 1
+
 __author__ = 'Amir Rahmani'
 __version__ = '0.3.0'
 __license__ = 'University of Leeds'
