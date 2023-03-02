@@ -62,7 +62,8 @@ def GCurFit(dir_path, init_guess, ScanRange):
     z_values = i_values*StepSize
     z_values = z_values.tolist() # This should be based on True/False direction
 
-    # Plot the curves        
+    # Plot the curves
+    # with plt.xkcd(): 
     plt.plot(z_values, x_sigma, 'r*', markersize=4, label="x width")
     plt.plot(z_values, y_sigma, 'b*', markersize=4, label="y width")
     plt.plot(z_values, np.subtract(x_sigma,y_sigma), 'kx', markersize=4)
