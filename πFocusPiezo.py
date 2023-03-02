@@ -15,7 +15,7 @@ import busio
 import Adafruit-MCP4725 # pip install Adafruit-MCP4725
 
 __author__ = 'Amir Rahmani'
-__version__ = '0.3.0'
+__version__ = '0.2.0'
 __license__ = 'University of Leeds'
 # -----------------------------------------------------------------------------
 def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
@@ -74,23 +74,30 @@ def GCurFit(dir_path, init_guess):
     plt.legend()
     plt.show()
 # -----------------------------------------------------------------------------
-def ZStageCtrl(NumSteps, defocusDir):
-    dac = Adafruit_MCP4725.MCP4725(address=0x60)
-    # We need to calculate it based on the amount that the stage should defocus to correct the axial drift
-    direction = defocusDir
-    try:    
-        i = 0
-        for i in range(NumSteps):
-            for pin in range(0, len(motor_pins)):
-                GPIO.output( motor_pins[pin], step_sequence[motor_step_counter][pin])
-            if direction==True:
-                motor_step_counter = (motor_step_counter - 1) % 8
-            if direction==False:
-                motor_step_counter = (motor_step_counter + 1) % 8
-            time.sleep (step_sleep)
-        except KeyboardInterrupt:
-        exit(1)    
-    exit(0)
+def ZPiezoCtrl(scanrange, step_size, direction, VDD):
+    print("Scan range should be in um and step size should be in nm.")
+    # DAC settings
+    i2c = busio.I2C(board.SCL, board.SDA)
+    MCP_DAC = adafruit_mcp4725.MCP4725(i2c)
+    # Based on the spec sheet of the piezo driver, each 0.01V corresponds to 100 nm movements.
+    V_step = (step_size*0.01)/100 
+    StepValue = (V_step*4096)/VDD
+    
+    V_scan = ((scanrange/2)*0.01)/0.1
+    ScanValue = (V_scan*4096)/VDD
+    
+    NumSteps = scanrange/(step_size*0.001)
+    initPiezoposition = MCP_DAC.raw_value # get the MCP_DAC.raw_value
+    StartingPoint = MCP_DAC.raw_value - ScanValue # set the MCP_DAC.raw_value to the starting point for the scan
+    """
+    Set the output voltage to specified value.  Value is a 12-bit number (0-4095) that is used to calculate the output voltage from:
+          Vout =  (VDD*value)/4096
+    I.e. the output voltage is the VDD reference scaled by value/4096. If persist is true it will save the voltage value in EEPROM 
+    so it continues after reset (default is false, no persistence).
+    """
+for i in range(1, NumSteps):
+    MCP_DAC.raw_value = (MCP_DAC.raw_value + StepValue)
+    time.sleep(1.0)
 # -----------------------------------------------------------------------------    
 def AcqPiFocus(timepoints):
     directory = time.strftime("%Y%m%d-%H%M%S")+"_CL500mm_40X"
