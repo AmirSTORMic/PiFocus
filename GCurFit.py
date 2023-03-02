@@ -19,7 +19,7 @@ def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     return eq.ravel()
 
 # This function applies the fitting algorithm on the beam profile and will give the calibration plots.
-def GCurFit(dir_path, init_guess, x1, ScanRange):
+def GCurFit(dir_path, init_guess, ScanRange):
     x_sigma = []
     y_sigma = []
     i_values = []
@@ -38,12 +38,7 @@ def GCurFit(dir_path, init_guess, x1, ScanRange):
         
         stacks = dir_path+'Test'+str(i)+'.tiff'
         img = cv2.imread(stacks)
-        
-        # This is just for images that need to be cropped for faster analysis.
-        if x1!=0:
-            img = crp_img
-        else:
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         
         im = np.asarray(img).astype(float)
         
