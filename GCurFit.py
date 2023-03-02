@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 __author__ = 'Amir Rahmani'
-__version__ = '0.3.0'
+__version__ = '0.5.0'
 __license__ = 'University of Leeds'
 
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
@@ -18,7 +18,7 @@ def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     eq =  i0+amp*np.exp(-((x-x0)**2/2/sX**2 + (y-y0)**2/2/sY**2))
     return eq.ravel()
 
-# 
+# This function applies the fitting algorithm on the beam profile and will give the calibration plots.
 def GCurFit(dir_path, init_guess, x1, ScanRange):
     x_sigma = []
     y_sigma = []
@@ -79,3 +79,10 @@ def GCurFit(dir_path, init_guess, x1, ScanRange):
     plt.ylabel("Beam Profile Width")
     plt.legend()
     plt.show()
+    
+# Run the following commands to see the folders in the directory.
+# dp = r'/Projects/Autofocus/Wolfson/'
+# [x[0] for x in os.walk(dp)]
+
+# GCurFit(dp+'foldername/', [2,444,444,275,275,150], 0, 4)
+# this will give the calibration curve for the dataset of interest. 
