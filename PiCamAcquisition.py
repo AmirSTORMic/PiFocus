@@ -1,3 +1,5 @@
+# The following code is for the acquisition of a stack for a specific scan range on the Autofocus system. 
+
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
 import time
@@ -12,23 +14,19 @@ import time
 #sudo apt-get install libqtgui4 
 #sudo apt-get install libqt4-test
 
+# Camera settings
 picam2 = Picamera2()
 picam2.configure(picam2.create_video_configuration(main={"size": (800, 600)}))
 picam2.set_controls({"ExposureTime":200, "FrameDurationLimits": (50,50), "AnalogueGain": 1})
 picam2.start()
 
-in1 = 17
-in2 = 18
-in3 = 27
-in4 = 22
-step_sleep = 0.02
-step_count = 80 # 80 number of steps should covern a scan range of about 10 um. 
+# The directory that the data should be saved in
 direction = True
-directory = time.strftime("%Y%m%d-%H%M%S")+"_CL500mm_40X"
-parent_dir = "/home/ponjaviclab/Downloads/" # depends on your system, you need to change this.
-Acq_path = os.path.join(parent_dir, directory)
-os.mkdir(Acq_path)
-print("Directory '% s' is created" % Acq_path)
+directory = time.strftime("%Y%m%d-%H%M%S")+"_"
+parent_dir = "/home/ponjaviclab/Documents/" # depends on your system, you need to change this.
+rootPath = os.path.join(parent_dir, directory)
+os.mkdir(rootPath)
+print("Directory '% s' is created" % rootPath)
 
 step_sequence = [[1,0,0,1],
                  [1,0,0,0],
@@ -38,6 +36,17 @@ step_sequence = [[1,0,0,1],
                  [0,0,1,0],
                  [0,0,1,1],
                  [0,0,0,1]]
+
+# Check the connection on the Pi board to be exactly as it is here for the pins. 
+in1 = 17
+in2 = 18
+in3 = 27
+in4 = 22
+
+motor_pins = [in1,in2,in3,in4]
+motor_step_counter = 0
+step_sleep = 0.02
+step_count = 80 # 80 number of steps should cover a scan range of about 100 um. 
 
 GPIO.setmode( GPIO.BCM )
 GPIO.setup( in1, GPIO.OUT )
@@ -50,15 +59,13 @@ GPIO.output( in2, GPIO.LOW )
 GPIO.output( in3, GPIO.LOW )
 GPIO.output( in4, GPIO.LOW )
 
-motor_pins = [in1,in2,in3,in4]
-motor_step_counter = 0
-
 def cleanup():
     GPIO.output( in1, GPIO.LOW )
     GPIO.output( in2, GPIO.LOW )
     GPIO.output( in3, GPIO.LOW )
     GPIO.output( in4, GPIO.LOW )
     GPIO.cleanup()
+    
 try:    
     i = 0
     for i in range(step_count):
@@ -71,11 +78,9 @@ try:
             motor_step_counter = (motor_step_counter + 1) % 8
         time.sleep (step_sleep )
         if i%5==0:
-            picam2.capture_file(Acq_path+filename)
-       
+            picam2.capture_file(rootPath+filename)       
 except KeyboardInterrupt:
     cleanup()
-    exit(1)    
-
+    exit(1)
 cleanup()
 exit(0)
