@@ -11,7 +11,7 @@ __version__ = '0.7.0'
 __license__ = 'University of Leeds'
 
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
-def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
+def GaussianBeam(xdata, i0, x0, y0, sX, sY, amp):
     (x, y) = xdata
     x0 = float(x0)
     y0 = float(y0)
@@ -19,7 +19,7 @@ def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     return eq.ravel()
 
 # This function applies the fitting algorithm on the beam profile and will give the calibration plots.
-def GCurFit(dir_path, init_guess, ScanRange, StepSize):
+def GCurFit(rootPath, init_guess, ScanRange, StepSize):
     x_sigma = []
     y_sigma = []
     i_values = []
@@ -27,10 +27,8 @@ def GCurFit(dir_path, init_guess, ScanRange, StepSize):
     
     # To read the acquired images and apply the Gaussian fitting
     for i in range(1,frame):
-        
         i_values.append(i)
-        
-        stacks = dir_path+'Test'+str(i)+'.tiff'
+        stacks = rootPath+'Test'+str(i)+'.tiff'
         img = cv2.imread(stacks)
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         im = np.asarray(img).astype(float)
@@ -38,7 +36,7 @@ def GCurFit(dir_path, init_guess, ScanRange, StepSize):
         h1, w1 = im.shape
         x, y = np.meshgrid(np.arange(w1),np.arange(h1))
         
-        popt, pcov = curve_fit(gaussianbeam, (x, y), im.ravel(), p0=init_guess, maxfev = 10000)
+        popt, pcov = curve_fit(GaussianBeam, (x, y), im.ravel(), p0=init_guess, maxfev = 10000)
         
         init_guess.clear()
         init_guess.append(popt)
@@ -64,7 +62,7 @@ def GCurFit(dir_path, init_guess, ScanRange, StepSize):
     plt.grid(True)
     #plt.xlim(2, 5.5)
     plt.xlabel("Z Values (um)")
-    plt.ylabel("Beam Width ()")
+    plt.ylabel("Beam Width")
     plt.legend()
     plt.show()
     
