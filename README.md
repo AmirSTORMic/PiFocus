@@ -20,3 +20,4 @@ The approach that we employ for this project relies upon developing microscopes
   * PiFocusASI.py: This is the code to operate a Z scan data for the focus stabilisation path using the ASI camera and the piezo. 
   * PiCamAcquisition.py: This is the code to operate a Z scan data for the focus stabilisation path using the OV camera and the piezo. 
 ## References:
+  1. Bon, P., Bourg, N., Lécart, S. et al. Three-dimensional nanometre localization of nanoparticles to enhance super-resolution microscopy. Nat Commun 6, 7764 (2015). [DOI: 10.1038/ncomms8764](https://doi.org/10.1038/ncomms8764)
