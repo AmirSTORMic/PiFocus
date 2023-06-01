@@ -16,5 +16,7 @@ The approach that we employ for this project relies upon developing microscopes
   * Relay lens pair
   * Camera
   *  
-
+## Codes
+  * PiFocusASI.py: This is the code to operate a Z scan data for the focus stabilisation path using the ASI camera and the piezo. 
+  * PiCamAcquisition.py: This is the code to operate a Z scan data for the focus stabilisation path using the OV camera and the piezo. 
 ## References:
