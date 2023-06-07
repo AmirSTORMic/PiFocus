@@ -12,11 +12,11 @@ The approach that we employ for this project relies upon developing microscopes
 ## Characterisation
 
 ## Components
-  * Laser [λ = 850 nm, CPS850, Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
+  * [Laser (λ = 850 nm, CPS850, Thorlabs)](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
   * Relay lens pair
   * Camera
   * 50/50 Beam Splitter (λ = 300-1100 nm)
-  * Dichroic (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
+  * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
 
 ## Codes
   * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
