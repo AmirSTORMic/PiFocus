@@ -12,12 +12,15 @@ The approach that we employ for this project relies upon developing microscopes
 ## Characterisation
 
 ## Components
-  * IR Laser [CPS850, Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
+  * Laser [λ = 850 nm, CPS850, Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
   * Relay lens pair
   * Camera
-  *  
+  * 50/50 Beam Splitter (λ = 300-1100 nm)
+  * Dichroic (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
+
 ## Codes
-  * PiFocusASI.py: This is the code to operate a Z scan data for the focus stabilisation path using the ASI camera and the piezo. 
-  * PiCamAcquisition.py: This is the code to operate a Z scan data for the focus stabilisation path using the OV camera and the piezo. 
+  * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
+  * PiCamAcquisition.py: To acquire a Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage. 
+
 ## References:
   1. Bon, P., Bourg, N., Lécart, S. et al. Three-dimensional nanometre localization of nanoparticles to enhance super-resolution microscopy. Nat Commun 6, 7764 (2015). [DOI: 10.1038/ncomms8764](https://doi.org/10.1038/ncomms8764)
