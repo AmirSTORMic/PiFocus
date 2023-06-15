@@ -1,3 +1,12 @@
+"""
+This code is used to performe z-stack acquisition for a specific scan range on the implemented focus stabilisation system with the ASI camera and CoreMorrow piezo stage. 
+Authors: Amir Rahmani, Aleks Ponjavic
+Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
+"""
+
+__version__ = '0.1.0'
+__license__ = 'University of Leeds'
+
 # Import packages that are required for the analysis.
 import os
 import cv2
@@ -9,10 +18,6 @@ from scipy.optimize import curve_fit
 
 import argparse
 import zwoasi as asi # pip install zwoasi
-
-__author__ = 'Amir Rahmani'
-__version__ = '0.4.0'
-__license__ = 'University of Leeds'
 
 # env_filename = os.getenv('PiFocus_ASI')
 
