@@ -33,4 +33,5 @@ The approach that we employ for this project relies upon developing microscopes
   * PiCamAcquisition.py: To acquire a Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage. 
 
 ## References:
-  1. Bon, P., Bourg, N., Lécart, S. et al. Three-dimensional nanometre localization of nanoparticles to enhance super-resolution microscopy. Nat Commun 6, 7764 (2015). [DOI: 10.1038/ncomms8764](https://doi.org/10.1038/ncomms8764)
+  1. Bon, P., Bourg, N., Lécart, S. et al. Three-dimensional nanometre localization of nanoparticles to enhance super-resolution microscopy. Nat Commun 6, 7764 (2015). DOI: [10.1038/ncomms8764](https://doi.org/10.1038/ncomms8764)
+  2. Rajdeep Chowdhury, Abhishek Sau, Jerry Chao, Ankith Sharma, and Siegfried M. Musser, "Tuning axial and lateral localization precision in 3D super-resolution microscopy with variable astigmatism," Opt. Lett. 47, 5727-5730 (2022) DOI: [10.1364/OL.466213](https://doi.org/10.1364/OL.466213)
