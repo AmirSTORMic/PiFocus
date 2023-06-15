@@ -1,4 +1,11 @@
-# The following code is for the acquisition of a stack for a specific scan range on the Autofocus system. 
+"""
+This code is used to performe z-stack acquisition for a specific scan range on the implemented focus stabilisation system. 
+Authors: Tabitha Cox, Amir Rahmani, Aleks Ponjavic
+Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
+"""
+
+__version__ = '0.1.1'
+__license__ = 'University of Leeds'
 
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
