@@ -1,3 +1,11 @@
+"""
+This code is used to performe z-stack acquisition for a specific scan range on the implemented focus stabilisation system using the CoreMorrow piezo stage. 
+"""
+
+__author__ = 'Amir Rahmani, Aleks Ponjavic'
+__version__ = '1.0.0'
+__license__ = 'University of Leeds'
+
 import busio
 import board
 import adafruit_mcp4725
@@ -12,10 +20,6 @@ import datetime
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
 from picamera.array import PiRGBArray
-
-__author__ = 'Amir Rahmani'
-__version__ = '1.0.0'
-__license__ = 'University of Leeds'
 
 # Camera settings
 picam2 = Picamera2()
