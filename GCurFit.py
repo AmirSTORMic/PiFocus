@@ -1,3 +1,12 @@
+"""
+This code is used to obtain z-calibration curves for the acquired data on the implemented focus stabilisation system. 
+Authors: Amir Rahmani, Tabitha Cox, Aleks Ponjavic
+Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
+"""
+
+__version__ = '0.5.0'
+__license__ = 'University of Leeds'
+
 # Import packages that are required for the analysis.
 import os
 import cv2
@@ -5,10 +14,6 @@ import time
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-
-__author__ = 'Amir Rahmani'
-__version__ = '0.5.0'
-__license__ = 'University of Leeds'
 
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
 def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
