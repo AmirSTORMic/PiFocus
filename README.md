@@ -1,12 +1,13 @@
 # πFocus
 
 ## About the project
-PiFocus is a project which was started in the Ponjavic lab at the University of Leeds to have a cost-effective, robust and easy-to-implement focus stabilisation system on our optical microscopes. We hope to be able to create a well-explained protocol for this open-hardware focus stabilisation system that can be easily duplicated by other laboratories.
+The Ponjavic lab at the University of Leeds started PiFocus to provide a cost-effective, robust and easy-to-implement focus stabilisation system for optical microscopes. By creating a well-explained protocol, we hope to enable other laboratories to replicate this open-hardware focus stabilisation system.
 
 The following students contributed to this project under the supervision of Dr Aleks Ponjavic:
 
 - Robert Elliott
 - Tabitha Cox
+- Thomas Marsh
 - Akhila Thamaravelil Abhimanue Achary
 - Ziyun Wang
 - Amir Rahmani
@@ -14,7 +15,7 @@ The following students contributed to this project under the supervision of Dr A
 A detailed description of the contribution will be provided upon agreement between the group members.
 
 ## Introduction
-Long image acquisition experiments require a reliable focus stabilisation system to avoid any defocusing resulting from the drift of components. In this regard, a form of focus stabilization in which the sample is maintained in focus is desirable. Since the drifts could be in all three dimensions, compensation for lateral and axial drift would be needed at the same time. However, there have been some developments for a focus stabilization system for axial drifts. 
+For long-term image acquisition experiments, a reliable focus stabilisation system is required to prevent defocusing due to component drift. Thus, it would be desirable to maintain the sample in focus by utilising a focus stabilization technique. Considering that drift could occur in all three dimensions, lateral and axial drift need to be compensated simultaneously. In recent years, however, some developments have been made in the area of axial drift stabilization systems. 
 
 ## Method
 The approach that we employ for this project relies upon developing microscopes that integrate not only the illumination and detection paths but also the optical focus stabilisation path. Our focus stabilization path relies on imaging and monitoring the change in the intensity profile of the IR laser beam reflected from the glass coverslip. Any change in the distance between the objective lens and the glass coverslip results in a lateral shift in the position of the returning beam, which is detected by the camera. The system allows for controlling hardware components and performs sample focus stabilization to counter sample drift in the Z-axis using a closed-loop feedback signal between the IR beam profile position and the piezo stage. A software-based feedback system detects this shift and corrects it by adjusting the position of the piezoelectric element built into the sample stage. By altering the intensity distribution of a back-reflected beam at the camera, this method reports defocusing value and direction when the axial position of the glass coverslip or imaging objective lens changes.
