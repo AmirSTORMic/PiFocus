@@ -57,13 +57,34 @@ def GCurFit(dir_path, init_guess, ScanRange):
         
         x_sigma.append(popt[3])
         y_sigma.append(popt[4])
-          
+        
+      
     # This is just to set the x-axis of the graph to the axial values
     StepSize = ScanRange/count
     i_values = np.array(i_values)
     z_values = i_values*StepSize
-    z_values = z_values.tolist() # This should be based on True/False direction
+    z_values = z_values.tolist() # This should be based on a True/False direction
+    
+    "Standard Deviation Calculation"
+    # See the link below for a reference of the standard deviation formula
+    # https://www.mathsisfun.com/data/standard-deviation-formulas.html
+    # Convert the lists to arrays
+    x1 = np.asarray(x_sigma)
+    y1 = np.asarray(y_sigma)
+    
+    DiffArr = y1 - x1
+    
+    # Calculate the mean of the values in your array
+    mean_DiffArr = sum(DiffArr) / len(DiffArr)
 
+    # Calculate the variance of the values in your array
+    # This is 1/N * sum((x - mean(X))^2)
+    var_DiffArr = sum((x - mean_DiffArr) ** 2 for x in DiffArr) / len(DiffArr)
+    
+    # Take the square root of the variance to get the standard deviation
+    sd_XY = var_DiffArr ** 0.5
+    print('This is the standard deviation:', sd_XY)
+    
     # Plot the curves
     # with plt.xkcd(): 
     plt.plot(z_values, x_sigma, 'r*', markersize=4, label="x width")
@@ -82,5 +103,5 @@ def GCurFit(dir_path, init_guess, ScanRange):
 # dp = r'/Projects/Autofocus/Wolfson/'
 # [x[0] for x in os.walk(dp)]
 
-# GCurFit(dp+'foldername/', [2,444,444,275,275,150], 0, 4)
-# this will give the calibration curve for the dataset of interest. 
+# GCurFit(dir_path, init_guess, ScanRange)
+# This will give the calibration curve for the dataset of interest.
