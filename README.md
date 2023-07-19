@@ -1,7 +1,7 @@
 # πFocus: A universal autofocusing approach using astigmatism
 
-### Authors: Amir Rahmani<sup>(1)</sup>, Aleks Ponjavic<sup>(1)</sup>
-### (1): School of Physics and Astronomy, University of Leeds, Leeds, UK
+### Authors: Amir Rahmani<sup>1</sup>, Aleks Ponjavic<sup>1</sup>
+#### 1: School of Physics and Astronomy, University of Leeds, Leeds, UK
 
 ## About the project
 The Ponjavic lab at the University of Leeds started PiFocus to provide a cost-effective, robust and easy-to-implement focus stabilisation system for optical microscopes. By creating a well-explained protocol, we hope to enable other laboratories to replicate this open-hardware focus stabilisation system.
