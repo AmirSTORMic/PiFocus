@@ -3,17 +3,6 @@
 ## About the project
 The Ponjavic lab at the University of Leeds started PiFocus to provide a cost-effective, robust and easy-to-implement focus stabilisation system for optical microscopes. By creating a well-explained protocol, we hope to enable other laboratories to replicate this open-hardware focus stabilisation system.
 
-The following students contributed to this project under the supervision of Dr Aleks Ponjavic:
-
-- Robert Elliott
-- Tabitha Cox
-- Thomas Marsh
-- Akhila Thamaravelil Abhimanue Achary
-- Ziyun Wang
-- Amir Rahmani
-
-A detailed description of the contribution will be provided upon agreement between the group members.
-
 ## Abstract
 In single-molecule localisation microscopy (SMLM), tens of thousands of frames of individual fluorophores are often sequentially recorded to build up a super-resolution image of a target of interest e.g., a protein in a cell. For these long-term image acquisition experiments, a reliable real-time autofocus system with precision at the nanometre scale is required to prevent defocusing. Most existing focus stabilization systems utilize a total internal reflection optical path for the autofocus beam as the high lateral motion of a reflected beam due to focal drift is significant. However, these techniques are not compatible with low NA systems because of the restricted angle of incidence. Here, we present the development of a universal autofocus system that is compatible with a broad range of objective lenses spanning from low to high numerical aperture (NA). Our approach relies on astigmatic imaging and monitoring the change upon focal drift in the intensity profile of the IR laser beam reflected from a glass coverslip. The system allows for controlling hardware components and performs sample focus stabilization to counter sample drift in the Z-axis using a closed-loop feedback signal between the IR beam profile position and the piezo stage. We have implemented our solution on a Raspberry PI platform that is capable of performing autofocusing at 300 fps, which is suitable for most conventional SMLM and tracking applications. This also means that the solution is independent and can be turned off/on when required without affecting any fluorescence imaging process. By calibrating the astigmatic response, it is also possible to do whole-cell scanning with autofocus.  
 
@@ -31,7 +20,11 @@ The approach that we employ for this project relies upon developing microscopes
   * 50/50 Beam Splitter (λ = 300-1100 nm)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
 
-## Codes
+## Acknowledgements
+The authors gratefully acknowledge the help from Robert Elliott, Tabitha Cox, Thomas Marsh, and, Akhila Thamaravelil Abhimanue Achary in the School of Physics and Astronomy at the University of Leeds who helped with setting up the Raspberry Pi, coding, and data acquisition.
+
+## Data availability
+Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon. 
   * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
   * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
