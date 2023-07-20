@@ -21,6 +21,10 @@ The collimated output beam of the IR laser was directed to pass through a beam e
   * [50/50 PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M) (λ = 700-1300 nm)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
+    - 100X/1.10 Water
+    - 100X/1.35 Silicone
+    - 60X/0.80
+    - 20X/0.40 
 
 ## Acknowledgements
 The authors gratefully acknowledge the help from Robert Elliott, Tabitha Cox, Thomas Marsh, and, Akhila Thamaravelil Abhimanue Achary in the School of Physics and Astronomy at the University of Leeds who helped with setting up the Raspberry Pi, coding, and data acquisition.
