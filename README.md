@@ -17,7 +17,7 @@ The collimated output beam of the IR laser was directed to pass through a beam e
 ## Main Parts
   * [Laser (λ = 850 nm, CPS850, Thorlabs)](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
   * Relay lens pair
-  * Camera
+  * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
   * [50/50 PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M) (λ = 700-1300 nm)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
