@@ -21,10 +21,11 @@ The collimated output beam of the IR laser was directed to pass through a beam e
 ## Results and Discussion
 <p align="justify">
 in a closed-loop feedback system and had a precision of less than ------- with a 20 µm focus range.
+</p>
   * Focusing Error Curves
   * For objective lenses from low to high NA
   * Timelapse 
-</p>
+
 
 ## Main Parts
   * [Laser (λ = 850 nm, CPS850, Thorlabs)](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
@@ -45,11 +46,12 @@ The authors gratefully acknowledge the help from Robert Elliott, Tabitha Cox, Th
 
 ## Data availability
 <p align="justify">
-Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon. 
+Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
+</p>
   * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
   * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
-</p>
+
 
 ## Funding
 Engineering and Physical Sciences Research Council.
