@@ -9,16 +9,22 @@ In single-molecule localisation microscopy (SMLM), tens of thousands of frames o
 </p>
 
 ## Introduction
+<p align="justify">
 Optical microscopy is basically the imaging of samples positioned at the focal plane of the primary objective lens. Maintaining optimal focus in real-time becomes crucial due to potential axial drift caused by external factors, including mechanical and thermal influences. Extensive research, as evidenced by numerous patents and scientific papers, has been undertaken to develop autofocusing mechanisms. Furthermore, several commercial systems have been designed to cater to the needs of microscopists in achieving accurate and consistent focus during imaging sessions.
+</p>
 
 ## Methods
+<p align="justify">
 The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then passes through the polarising beam splitter ([PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)). Our focus stabilization path relies on imaging and monitoring the change in the beam profile of the IR laser beam reflected from the glass coverslip. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. 
+</p>
 
 ## Results and Discussion
+<p align="justify">
 in a closed-loop feedback system and had a precision of less than ------- with a 20 µm focus range.
   * Focusing Error Curves
   * For objective lenses from low to high NA
   * Timelapse 
+</p>
 
 ## Main Parts
   * [Laser (λ = 850 nm, CPS850, Thorlabs)](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
@@ -33,18 +39,22 @@ in a closed-loop feedback system and had a precision of less than ------- with a
     - 20X/0.40 
 
 ## Acknowledgements
+<p align="justify">
 The authors gratefully acknowledge the help from Robert Elliott, Tabitha Cox, Thomas Marsh, and, Akhila Thamaravelil Abhimanue Achary in the School of Physics and Astronomy at the University of Leeds who helped with setting up the Raspberry Pi, coding, and data acquisition.
+</p>
 
 ## Data availability
+<p align="justify">
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon. 
   * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
   * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
+</p>
+
 ## Funding
 Engineering and Physical Sciences Research Council.
 
 ## References:
-  
   1. Donald K. Cohen, Wing Ho Gee, M. Ludeke, and Julian Lewkowicz, "Automatic focus control: the astigmatic lens approach," Appl. Opt. 23, 565-570 (1984) DOI: [10.1364/AO.23.000565](https://doi.org/10.1364/AO.23.000565)
   2. Bon, P., Bourg, N., Lécart, S. et al. Three-dimensional nanometre localization of nanoparticles to enhance super-resolution microscopy. Nat Commun 6, 7764 (2015). DOI: [10.1038/ncomms8764](https://doi.org/10.1038/ncomms8764)
   3. Hongqiang Ma and Yang Liu, "Embedded nanometer position tracking based on enhanced phasor analysis," Opt. Lett. 46, 3825-3828 (2021), DOI: [10.1364/OL.433740](https://doi.org/10.1364/OL.433740)
