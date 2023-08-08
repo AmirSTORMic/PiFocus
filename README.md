@@ -15,7 +15,7 @@ Optical microscopy is basically the imaging of samples positioned at the focal p
 
 ## Methods
 <p align="justify">
-The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then passes through the polarising beam splitter ([PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)). Our focus stabilization path relies on imaging and monitoring the change in the beam profile of the IR laser beam reflected from the glass coverslip. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. 
+The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then passes through the polarising beam splitter. Our focus stabilization path relies on imaging and monitoring the change in the beam profile of the IR laser beam reflected from the glass coverslip. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. 
 </p>
 
 ## Results and Discussion
