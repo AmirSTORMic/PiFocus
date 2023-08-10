@@ -1,4 +1,4 @@
-ens # πFocus: A universal autofocusing approach using astigmatism
+# πFocus: A universal autofocusing approach using astigmatism
 
 ### Amir Rahmani<sup>1</sup>, Aleks Ponjavic<sup>1</sup>
 #### 1: *School of Physics and Astronomy, University of Leeds, Leeds, UK*
