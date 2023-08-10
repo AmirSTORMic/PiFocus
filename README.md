@@ -16,9 +16,11 @@ Optical microscopy is basically the imaging of samples positioned at the focal p
 ## Methods
 <p align="justify">
 The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then was reflected by a polarizing beam splitter (PBS) and passed through a λ/4-plate for circular polarization. The beam entered the microscopy path by being reflected from the dichroic heading towards the back aperture of the primary objective lens. The laser beam is then focused on the glass coverslip at the front focal plane of the objective lens. The reflected light from the glass coverslip took the same path back to the autofocus detection unit by transmitting through the PBS, filtered by a neutral density filter, passing through a cylindrical lens (f = 500 mm) and focused onto a camera (Raspberry Pi OV-CAM) by a tube lens (f = 200, Thorlabs Inc.) where it formed an elliptical Gaussian PSF.  
- 
+</p>
+<p align="justify">
 Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y.  
-
+</p>
+<p align="justify">
 According to the theory of Fraunhofer diffraction for circular apertures, the intensity at the image plane would be 
 </p>
 
