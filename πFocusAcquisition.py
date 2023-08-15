@@ -25,9 +25,6 @@ import RPi.GPIO as GPIO
 # Want to detect the DAC to make sure it is connected. Run in terminal: 
 # sudo i2cdetect -y 1
 
-__author__ = 'Amir Rahmani'
-__version__ = '0.3.0'
-__license__ = 'University of Leeds'
 # -----------------------------------------------------------------------------
 def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     (x, y) = xdata
