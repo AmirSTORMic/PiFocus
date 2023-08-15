@@ -1,10 +1,9 @@
 """
-This code was used to obtain z-calibration curves for the acquired data on the implemented focus stabilisation system. 
+This code was used to obtain z-calibration curves for the datasets acquired on the implemented autofocus system. 
 Authors: Amir Rahmani, Tabitha Cox, Aleks Ponjavic
 Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
 """
 
-# Import packages that are required for the analysis.
 import os
 import cv2
 import time
@@ -30,6 +29,11 @@ def numFiles(dir_path):
     return count
 
 # This function applies the fitting algorithm on the beam profile and will give the calibration plots.
+# In the following function, dLoc is the directory that the tif files are stored in.
+# "init_guess" is an araye-like object to determine the initial guess for the parameters of the fiting function. 
+# Beware that "scipy.optimize" is rather sensitive to the initial guess. 
+# ScanRange is the range that over which the piezo stage is scanned to acquire the stacks.
+# StepSize for the scanning
 def FECPlot(dLoc, init_guess, ScanRange, StepSize):
     x_sigma = []
     y_sigma = []
