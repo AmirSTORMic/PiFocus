@@ -8,7 +8,7 @@
 For a full description of the project, follow the documentation link. 
 
 ## Optomechanics and Optics
-  * [Laser](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
+  * [Laser: 880 nm, 3 mW, Laser Diode, FC/PC](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
   * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
   * [L1: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
   * [L2: f = 80.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
@@ -19,10 +19,10 @@ For a full description of the project, follow the documentation link.
   * [Cube-Mounted PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
-    - 100X/1.10 Water
     - 100X/1.35 Silicone
-    - 60X/0.80
-    - 20X/0.40 
+    - 60X/1.27 Water
+    - 40X/0.95 Air
+    - 20X/0.40 Air
 
 ## Scripts
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
