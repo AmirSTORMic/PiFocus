@@ -2,11 +2,10 @@
 """
 This code is used to perform z-stack acquisition for a specific scan range on 
 the implemented focus stabilisation system using the CoreMorrow piezo stage. 
+PCP: Pi Camera Piezo
 """
 ##########################################################################################
-__author__ = 'Amir Rahmani, Aleks Ponjavic'
-__version__ = '1.0.0'
-##########################################################################################
+
 # Import required packages for the communication with DAC and Camera
 import os
 import sys
