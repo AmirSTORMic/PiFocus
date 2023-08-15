@@ -63,6 +63,21 @@ Python scripts that have been used for hardware control, data acquisition, and a
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
 
 ## Dependencies
+Manage to get the MAX5216 SPI DAC to work with my Raspberry Pi.
+`sudo apt-get install i2c-tools`
+`pip3 install adafruit-blinka`
+`sudo pip3 install adafruit-circuitpython-mcp4725`
+
+Change the config file with: `sudo nano /boot/config.txt` and add the following lines to the end:
+`dtparam=i2c_arm=on
+dtparam=i2c1=on `
+exit with ctrl-x and save with y.
+
+Next need to enable the camera and I2C interface. Go to the Raspberry Pi terminal and type:
+`sudo raspi-config` Then go to the interfacing options. Enable the camera and I2C.
+# If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
+`sudo i2cdetect -y 1`
+
 In the Raspberry Pi terminal, run the following commands. 
 
 `pip3 install opencv-python`
