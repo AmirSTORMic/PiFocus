@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
-# πFocus: A universal autofocusing approach using astigmatism
+# PiFocus: A universal autofocusing approach using astigmatism
 
 ### Amir Rahmani<sup>1</sup>, Aleks Ponjavic<sup>1</sup>
 #### 1: *School of Physics and Astronomy, University of Leeds, Leeds, UK*
@@ -62,9 +62,11 @@ Python scripts that have been used for hardware control, data acquisition, and a
   * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
 
-
 ## Funding
 Engineering and Physical Sciences Research Council.
+
+## Issues
+In the event that you come across any difficulties, please don't hesitate to file an issue and make sure to provide a thorough description of the problem.
 
 ## References:
   1. G. Reinheimer, Anordnung zum selbsttätigen Fokussieren auf in optischen Geräten zu betrachtende Objekte, German Patent No. DE-PS 21 02 922 (1971).
