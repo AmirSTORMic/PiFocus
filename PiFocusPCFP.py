@@ -14,10 +14,6 @@ import board
 import busio
 import Adafruit-MCP4725 # pip install Adafruit-MCP4725
 
-__author__ = 'Amir Rahmani'
-__version__ = '0.2.0'
-__license__ = 'University of Leeds'
-
 # ----------------------------------------------------------------------------------------------------
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile.
 # ----------------------------------------------------------------------------------------------------
@@ -31,24 +27,32 @@ def GaussianBeam(xdata, i0, x0, y0, sX, sY, amp):
 # ----------------------------------------------------------------------------------------------------
 # This function applies the fitting algorithm on the beam profile and will give the calibration plots.
 # ----------------------------------------------------------------------------------------------------
-def GCurFit(rootPath, init_guess, ScanRange, StepSize):
+def FECPlot(dLoc, init_guess, ScanRange, StepSize):
     x_sigma = []
     y_sigma = []
     i_values = []
-    frame = ScanRange/(StepSize*0.001)
-    
+    dp = 'C:/Users/44785/'
+    dir_Path = dp+dLoc
+    count = numFiles(dir_Path)
+    # init_guess = [1000,400,400,100,100,400]
     # To read the acquired images and apply the Gaussian fitting
-    for i in range(1,frame):
+    for i in range(1,count):
+        
         i_values.append(i)
-        stacks = rootPath+'Test'+str(i)+'.tiff'
-        img = cv2.imread(stacks)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        
+        stacks = dir_Path+'Test'+str(i).zfill(3)+'.tif'
+        img = cv2.imread(stacks, -1)
+        # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        
         im = np.asarray(img).astype(float)
+        #im = im[150:350, 300:500]
         
         h1, w1 = im.shape
         x, y = np.meshgrid(np.arange(w1),np.arange(h1))
         
-        popt, pcov = curve_fit(GaussianBeam, (x, y), im.ravel(), p0=init_guess, maxfev = 10000)
+        popt, pcov = curve_fit(gaussianbeam, (x, y), im.ravel(), p0=init_guess, maxfev = 150000)
+        popt[3] = np.abs(popt[3])
+        popt[4] = np.abs(popt[4])
         
         init_guess.clear()
         init_guess.append(popt)
@@ -56,28 +60,42 @@ def GCurFit(rootPath, init_guess, ScanRange, StepSize):
         dd = gaussianbeam((x,y),*popt)
         dd = dd.reshape(h1,w1)
         
+        # plt.plot((popt[1],popt[1]+popt[3]),(popt[2],popt[2]))
+        # plt.plot((popt[1],popt[1]),(popt[2],popt[2]+popt[4]))
+        # plt.imshow(im)
+        # plt.show()
+        
         x_sigma.append(popt[3])
         y_sigma.append(popt[4])
-          
-    # This is just to set the x-axis of the graph to the axial values
+        
+    " To set the x-axis of the graph to the axial values "
+    """ ------------------------------------------------------------------ """
     i_values = np.array(i_values)
     z_values = i_values*StepSize
-    z_values = z_values.tolist() # This should be based on True/False direction
-
-    # Plot the curves
-    # with plt.xkcd(): 
-    plt.plot(z_values, x_sigma, 'r*', markersize=4, label="x width")
-    plt.plot(z_values, y_sigma, 'b*', markersize=4, label="y width")
-    plt.plot(z_values, np.subtract(x_sigma,y_sigma), 'kx', markersize=4)
-    #slopeX, interceptX = np.polyfit(np.log(x_sigma), np.log(z_values), 1)
-    #plt.text(.5, 80, r'$\sigma_y=10,\ \sigma_x=10$')
-    plt.grid(True)
-    #plt.xlim(2, 5.5)
-    plt.xlabel("Z Values (um)")
-    plt.ylabel("Beam Width")
-    plt.legend()
-    plt.show()
+    z_values = z_values.tolist() # Based on a True/False direction
     
+    "Standard Deviation Calculation"
+    """ ------------------------------------------------------------------ """
+    # See the link below for a reference of the standard deviation formula
+    # https://www.mathsisfun.com/data/standard-deviation-formulas.html
+    # Convert the lists to arrays
+    x1 = np.asarray(x_sigma)
+    y1 = np.asarray(y_sigma)
+    
+    DiffArr = y1 - x1
+    
+    # Calculate the mean of the values in your array
+    mean_DiffArr = sum(DiffArr) / len(DiffArr)
+    
+    # Calculate the variance of the values in your array
+    # This is 1/N * sum((x - mean(X))^2)
+    var_DiffArr = sum((x - mean_DiffArr) ** 2 for x in DiffArr) / len(DiffArr)
+    
+    # Take the square root of the variance to get the standard deviation
+    sd_XY = var_DiffArr ** 0.5
+    print('This is the standard deviation:', sd_XY)
+    
+    return np.subtract(x_sigma,y_sigma)
 # ----------------------------------------------------------------------------------------------------
 # A function to do a z scan using the Piezo
 # ----------------------------------------------------------------------------------------------------
@@ -109,8 +127,8 @@ def ZPiezoCtrl(scanrange, step_size, direction, VDD):
 # ----------------------------------------------------------------------------------------------------
 # ----------------------------------------------------------------------------------------------------
 def AcqPiFocus(timepoints):
-    directory = time.strftime("%Y%m%d-%H%M%S")+"_CL500mm_40X"
-    parent_dir = "/home/ponjaviclab/Downloads/" # depends on your system, you need to change this.
+    directory = time.strftime("%Y%m%d-%H%M%S")
+    parent_dir = "/home/ponjaviclab/" # depends on your system, you need to change this.
     Acq_path = os.path.join(parent_dir, directory)
     os.mkdir(Acq_path)
     print("Directory '% s' is created" % Acq_path)
@@ -122,7 +140,7 @@ def AcqPiFocus(timepoints):
     for i in range(1, timepoints):
         filename = "Test"+str(i)+".tiff"
         picam2.capture_file(Acq_path+filename)
-        GCurFit(Acq_path+filename, [2,370,370,380,380,150])
+        FECPlot(Acq_path+filename, [2,370,370,380,380,150])
         if ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)>0)):
             ZPiezoCtrl(NumSteps, False)
         elif ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)<0)):
