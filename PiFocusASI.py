@@ -4,9 +4,6 @@ Authors: Amir Rahmani, Aleks Ponjavic
 Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
 """
 
-__version__ = '0.1.0'
-__license__ = 'University of Leeds'
-
 # Import packages that are required for the analysis.
 import os
 import cv2
