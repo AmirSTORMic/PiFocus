@@ -4,6 +4,9 @@
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
+# PiFocus: A universal autofocusing approach using astigmatism
+For a full description of the project, follow the documentation link. 
+
 ## Optomechanics and Optics
   * [Laser](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
   * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
@@ -13,7 +16,7 @@
   * [L4: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
   * [Ø1/2" Mounted Achromatic Quarter-Wave Plate, Ø1" Mount, 690 - 1200 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AQWP05M-980)
   * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
-  * [50/50 PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M) (λ = 700-1300 nm)
+  * [Cube-Mounted PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
     - 100X/1.10 Water
