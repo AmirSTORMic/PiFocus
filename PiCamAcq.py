@@ -1,25 +1,14 @@
 """
-This code is used to performe z-stack acquisition for a specific scan range on the implemented focus stabilisation system. 
+This code is used to performe z-stack acquisition for a specific scan range using a step motor and Raspberry Pi camera. 
 Authors: Tabitha Cox, Amir Rahmani, Aleks Ponjavic
 Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
 """
-
-__version__ = '0.1.1'
-__license__ = 'University of Leeds'
 
 from picamera2 import Picamera2
 import RPi.GPIO as GPIO
 import time
 
-# if the picamera2 is installed but you get the ImportError, run the following commands to make sure you have installed all dependencies.
-#pip3 install opencv-python 
-#sudo apt-get install libcblas-dev
-#sudo apt-get install libhdf5-dev
-#sudo apt-get install libhdf5-serial-dev
-#sudo apt-get install libatlas-base-dev
-#sudo apt-get install libjasper-dev 
-#sudo apt-get install libqtgui4 
-#sudo apt-get install libqt4-test
+# If the "picamera2" module is installed but you get the ImportError, make sure you have installed all dependencies.
 
 # Camera settings
 picam2 = Picamera2()
