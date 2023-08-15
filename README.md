@@ -1,11 +1,11 @@
-[![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://AmirSTORMic/PiFocus/PiFocusDraft.md/)
+[![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/AmirSTORMic/piFocus/blob/main/PiFocusDraft.md)
 [![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
 [![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
 ## Optomechanics and Optics
-  * [Laser]([https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3))
+  * [Laser]([https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
   * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
   * [L1: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
   * [L2: f = 80.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
