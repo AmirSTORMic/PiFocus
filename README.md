@@ -4,9 +4,14 @@
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
-## Main Parts
-  * [Laser (λ = 850 nm, CPS850, Thorlabs)](https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850)
-  * Relay lens pair
+## Optomechanics and Optics
+  * [Laser]([https://www.thorlabs.com/thorproduct.cfm?partnumber=CPS850](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3))
+  * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
+  * [L1: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
+  * [L2: f = 80.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
+  * [L3: f = 500.0 mm, Ø1", N-BK7 Mounted Plano-Convex Round Cyl Lens](https://www.thorlabs.com/thorproduct.cfm?partnumber=LJ1144RM)
+  * [L4: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
+  * [Ø1/2" Mounted Achromatic Quarter-Wave Plate, Ø1" Mount, 690 - 1200 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AQWP05M-980)
   * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
   * [50/50 PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M) (λ = 700-1300 nm)
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
