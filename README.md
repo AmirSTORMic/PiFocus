@@ -1,4 +1,5 @@
 [![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://AmirSTORMic/PiFocus)
+[![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
 
 # πFocus: A universal autofocusing approach using astigmatism
 
