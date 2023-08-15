@@ -62,6 +62,33 @@ Python scripts that have been used for hardware control, data acquisition, and a
   * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
   * [GCurFit.py](https://github.com/AmirSTORMic/PiFocus/master/GCurFit.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
 
+## Dependencies
+In the Raspberry Pi terminal, run the following commands. 
+'''
+pip3 install opencv-python
+'''
+'''
+sudo apt-get install libcblas-dev
+'''
+'''
+sudo apt-get install libhdf5-dev
+'''
+'''
+sudo apt-get install libhdf5-serial-dev
+'''
+'''
+sudo apt-get install libatlas-base-dev
+'''
+'''
+sudo apt-get install libjasper-dev
+'''
+'''
+sudo apt-get install libqtgui4
+'''
+'''
+sudo apt-get install libqt4-test
+'''
+
 ## Funding
 Engineering and Physical Sciences Research Council.
 
