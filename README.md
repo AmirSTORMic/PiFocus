@@ -5,33 +5,10 @@
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
 # PiFocus: A universal autofocusing approach using astigmatism
-For a full description of the project, follow the documentation link. 
+In this repository, you'll find a semi protocol detailing the process for setting up the PiFocus system. The collection encompasses designs, hardware specifications, and software components that are all listed below. Additionally, there are scripts available for replicating calibration outcomes, along with the necessary Python code for conducting autofocus operations. For a comprehensive understanding of the entire project, please refer to the provided documentation link.
 
-## Optomechanics and Optics
-  * [Laser: 880 nm, 3 mW, Laser Diode, FC/PC](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
-  * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
-  * [L1: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
-  * [L2: f = 80.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
-  * [L3: f = 500.0 mm, Ø1", N-BK7 Mounted Plano-Convex Round Cyl Lens](https://www.thorlabs.com/thorproduct.cfm?partnumber=LJ1144RM)
-  * [L4: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
-  * [Ø1/2" Mounted Achromatic Quarter-Wave Plate, Ø1" Mount, 690 - 1200 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AQWP05M-980)
-  * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
-  * [Cube-Mounted PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)
-  * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
-  * Objective Lenses
-    - 100X/1.35 Silicone
-    - 60X/1.27 Water
-    - 40X/0.95 Air
-    - 20X/0.40 Air
-
-## Scripts
-Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
-  * PiFocusASI.py: To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
-  * PiCamAcquisition.py: To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
-  * [FECPlot.py](https://github.com/AmirSTORMic/PiFocus/master/FECPlot.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
-
-## Dependencies
-Manage to get the MAX5216 SPI DAC to work with my Raspberry Pi.
+## Set the Raspberry Pi and Camera
+Manage to get the MAX5216 SPI DAC to work with the Raspberry Pi.
 
 `sudo apt-get install i2c-tools`
 
@@ -81,6 +58,29 @@ In the Raspberry Pi terminal, run the following commands.
 
 
 `sudo apt-get install libqt4-test`
+
+## Optomechanics and Optics
+  * [Laser: 880 nm, 3 mW, Laser Diode, FC/PC](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
+  * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FC)
+  * [L1: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
+  * [L2: f = 80.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
+  * [L3: f = 500.0 mm, Ø1", N-BK7 Mounted Plano-Convex Round Cyl Lens](https://www.thorlabs.com/thorproduct.cfm?partnumber=LJ1144RM)
+  * [L4: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
+  * [Ø1/2" Mounted Achromatic Quarter-Wave Plate, Ø1" Mount, 690 - 1200 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AQWP05M-980)
+  * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
+  * [Cube-Mounted PBS](https://www.thorlabs.com/thorproduct.cfm?partnumber=CCM1-PBS255/M)
+  * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
+  * Objective Lenses
+    - 100X/1.35 Silicone
+    - 60X/1.27 Water
+    - 40X/0.95 Air
+    - 20X/0.40 Air
+
+## Codes
+Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
+  * [PiFocusASI](https://github.com/AmirSTORMic/PiFocus/master/PiFocusASI.py): To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
+  * [PiFocusPCP](https://github.com/AmirSTORMic/PiFocus/master/PiFocusPCP.py): To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
+  * [FECPlot](https://github.com/AmirSTORMic/PiFocus/master/FECPlot.py): To analyse the acquired datasets on the Autofocus system in the advanced lab. 
 
 ## Issues
 In the event that you come across any difficulties, please don't hesitate to file an issue and make sure to provide a thorough description of the problem.
