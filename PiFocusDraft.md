@@ -5,12 +5,12 @@
 
 ## Abstract
 <p align="justify">
-In single-molecule localisation microscopy (SMLM), tens of thousands of frames of individual fluorophores are often sequentially recorded to build up a super-resolution image of a target of interest e.g., a protein in a cell. For these long-term image acquisition experiments, a reliable real-time autofocus system with precision at the nanometre scale is required to prevent defocusing. Most existing focus stabilization systems utilize a total internal reflection optical path for the autofocus beam as the high lateral motion of a reflected beam due to focal drift is significant. However, these techniques are not compatible with low numerical aperture (NA) systems because of the restricted angle of incidence. Here, we present the development of a universal autofocus system that is compatible with a broad range of objective lenses spanning from low to high NA. Our approach relies on astigmatic imaging and monitoring the change upon focal drift in the intensity profile of the IR laser beam reflected from a glass coverslip. The system allows for controlling hardware components and performs sample focus stabilization to counter sample drift in the Z-axis using a closed-loop feedback signal between the IR beam profile position and the piezo stage. We have implemented our solution on a Raspberry PI platform that is capable of performing autofocusing at 300 fps, which is suitable for most conventional SMLM and tracking applications. This also means that the solution is independent and can be turned off/on when required without affecting any fluorescence imaging process. By calibrating the astigmatic response, it is also possible to do whole-cell scanning with autofocus.  
+In single-molecule localisation microscopy (SMLM), tens of thousands of frames of individual fluorophores are often sequentially recorded to build up a super-resolution image of a target of interest e.g., a protein in a cell. For these long-term image acquisition experiments, a reliable real-time autofocus system with precision at the nanometre scale is required to prevent defocusing. Most existing focus stabilization systems utilize a total internal reflection optical path for the autofocus beam as the high lateral motion of a reflected beam due to focal drift is significant. However, these techniques are not compatible with low numerical aperture (NA) systems because of the restricted angle of incidence. Here, we present the development of a universal autofocus system that is compatible with a broad range of objective lenses spanning from low to high NA. Our approach relies on astigmatic imaging and monitoring the change upon focal drift in the intensity profile of the IR laser beam reflected from a glass coverslip. The system allows for controlling hardware components and performs sample focus stabilization to counter sample drift in the Z-axis using a closed-loop feedback signal between the IR beam profile position and the piezo stage. We have implemented our solution on a Raspberry PI platform that is capable of performing autofocusing at 300 fps, which is suitable for most most SMLM methods, MINFLUX, and tracking applications. This also means that the solution is independent and can be turned off/on when required without affecting any fluorescence imaging process. By calibrating the astigmatic response, it is also possible to do whole-cell scanning with autofocus.  
 </p>
 
 ## Introduction
 <p align="justify">
-Optical microscopy is basically the imaging of samples positioned at the focal plane of the primary objective lens. Maintaining optimal focus in real-time becomes crucial due to potential axial drift caused by external factors, including mechanical and thermal influences. Although extensive research, as evidenced by numerous patents and papers [1, 2], has been undertaken to develop autofocusing mechanisms, most of them suffer from either low focus correction precision or low acquisition range. Super-resolution microscopy techniques such as SMLM and MIINFLUX which obtain images of the biological samples at the nanoscale resolution feel the need for a robust and precise real-time autofocus system more importantly for high-throughput automated microscopy. Hence, in addition to autofocusing method developments [references will be added] several commercial systems have been designed [cite Perfect Focus System] to cater to the needs of microscopists in achieving accurate and consistent focus during imaging sessions. Still, 
+Optical microscopy is basically the imaging of samples positioned at the focal plane of the primary objective lens. Maintaining optimal focus in real-time becomes crucial due to potential axial drift caused by external factors, including mechanical and thermal influences. Although extensive research, as evidenced by numerous patents and papers [1, 2], has been undertaken to develop autofocusing mechanisms, most of them suffer from either low focus correction precision or low acquisition range. Super-resolution microscopy techniques which obtain images of the biological samples at the nanoscale resolution feel the need for a robust and precise real-time autofocus system more importantly for high-throughput automated microscopy. Hence, in addition to autofocusing method developments [references will be added] several commercial systems have been designed [cite Perfect Focus System] to cater to the needs of microscopists in achieving accurate and consistent focus during imaging sessions. Still, 
 </p>
 
 ## Methods
@@ -19,14 +19,22 @@ The collimated output beam of the IR laser was directed to pass through a beam e
 </p>
 
 <p align="justify">
-Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y.  
+Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y. In each fram, the beam profile was fitted to a 2D Gaussian to locate the centre position of the beam on the Raspberry Pi camera.
 </p>
 
 <p align="justify">
 According to the theory of Fraunhofer diffraction for circular apertures, the intensity at the image plane would be 
 </p>
 
-## Results and Discussion
+<p align="justify">
+A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage.
+</p>
+
+<p align="justify">
+The data acquisition and instrument control was performed with MicroManager2.0. Data analysis and processing was performed with scripts writen in Python. 
+</p>
+
+ ## Results and Discussion
 in a closed-loop feedback system and had a precision of less than ------- with a 20 µm focus range.
   * Focusing Error Curves
   * For objective lenses from low to high NA
