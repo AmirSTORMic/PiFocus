@@ -72,8 +72,9 @@ In the Raspberry Pi terminal, run the following commands.
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
     - 100X/1.35 Silicone
-    - 60X/1.27 Water
-    - 40X/0.95 Air
+    - 100X/1.10 WI
+    - 60X/1.27 WI
+    - 40X/0.60 Air
     - 20X/0.40 Air
 
 ## Codes
