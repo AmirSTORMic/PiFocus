@@ -35,10 +35,7 @@ The data acquisition and instrument control was performed with MicroManager2.0. 
 </p>
 
  ## Results and Discussion
-in a closed-loop feedback system and had a precision of less than ------- with a 20 µm focus range.
-  * Focusing Error Curves
-  * For objective lenses from low to high NA
-  * Timelapse 
+Presented in SMLMS2023 in Vienna! Coming soon!
 
 ## Acknowledgements
 <p align="justify">
