@@ -21,11 +21,11 @@ The collimated output beam of the IR laser was directed to pass through a beam e
 <p align="justify">
 Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y. In each fram, the beam profile was fitted to a 2D Gaussian to locate the centre position of the beam on the Raspberry Pi camera.
 </p>
-
+<!---
 <p align="justify">
 According to the theory of Fraunhofer diffraction for circular apertures, the intensity at the image plane would be 
 </p>
-
+-->
 <p align="justify">
 A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage.
 </p>
