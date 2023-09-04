@@ -15,7 +15,7 @@ Optical microscopy is basically the imaging of samples positioned at the focal p
 
 ## Methods
 <p align="justify">
-The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then was reflected by a polarizing beam splitter (PBS) and passed through a λ/4-plate for circular polarization. The beam entered the microscopy path by being reflected from the dichroic heading towards the back aperture of the primary objective lens. The laser beam is then focused on the glass coverslip at the front focal plane of the objective lens. The reflected light from the glass coverslip took the same path back to the autofocus detection unit by transmitting through the PBS, filtered by a neutral density filter, passing through a cylindrical lens (f = 500 mm) and focused onto a camera (Raspberry Pi OV-CAM) by a tube lens (f = 200, Thorlabs Inc.) where it formed an elliptical Gaussian PSF.  
+The collimated output beam of the IR laser was directed to pass through a beam expansion configuration which is utilized to ensure the required beam size at the back aperture of the objective lens. The collimated expanded beam then was reflected by a polarizing beam splitter (PBS) and passed through a λ/4-plate for circular polarization. The beam entered the microscopy path by being reflected from the dichroic heading towards the back aperture of the primary objective lens. The laser beam is then focused on the glass coverslip at the front focal plane of the objective lens. The reflected light from the glass coverslip took the same path back to the autofocus detection unit by transmitting through the PBS, filtered by a neutral density filter, passing through a cylindrical lens (f = 500 mm) and focused onto a camera (Raspberry Pi OV-CAM) by a tube lens (f = 200, Thorlabs Inc.) where it formed an elliptical Gaussian PSF.
 </p>
 
 <p align="justify">
@@ -27,7 +27,7 @@ According to the theory of Fraunhofer diffraction for circular apertures, the in
 </p>
 -->
 <p align="justify">
-A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage.
+To perform calibration step which is critical in ensuring the accuracy and reliability of our focus stabilization systems (especially when accounting for different optical parameters such as objective lenses numerical aperure and astigmatism values), a Z image stack were captured to establish a calibration curve that maps the relationship between focal plane position and the corresponding correction needed for optimal focus stabilization. The scan range and step size of the Z stack were carefully chosen to ensure that the entire range of astigmatism was covered, thereby encompassing the full range of potential focal plane deviations. A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage in three dimensions.
 </p>
 
 <p align="justify">
