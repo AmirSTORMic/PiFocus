@@ -19,7 +19,7 @@ The collimated output beam of the IR laser was directed to pass through a beam e
 </p>
 
 <p align="justify">
-Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y. In each fram, the beam profile was fitted to a 2D Gaussian to locate the centre position of the beam on the Raspberry Pi camera.
+Our focus stabilization path relies on encoding the axial position of the glass coverslip by real-time monitoring of the reflected beam. The beam profile on the camera is circular when the sample is in focus and becomes an ellipse when it is out of focus and this means the beam width would vary in X and Y which informs us of the change in the axial sample position and the direction it has been displaced towards. This dependency of the beam width in XY to the axial position of the glass coverslip can help us to fit the curve and the axial calibration curve can be obtained by subtracting the beam width change for x and y. In each frame, the beam profile was fitted to a 2D Gaussian to locate the centre position of the beam on the Raspberry Pi camera.
 </p>
 <!---
 <p align="justify">
@@ -27,15 +27,22 @@ According to the theory of Fraunhofer diffraction for circular apertures, the in
 </p>
 -->
 <p align="justify">
-To perform calibration step which is critical in ensuring the accuracy and reliability of our focus stabilization systems (especially when accounting for different optical parameters such as objective lenses numerical aperure and astigmatism values), a Z image stack were captured to establish a calibration curve that maps the relationship between focal plane position and the corresponding correction needed for optimal focus stabilization. The scan range and step size of the Z stack were carefully chosen to ensure that the entire range of astigmatism was covered, thereby encompassing the full range of potential focal plane deviations. A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage in three dimensions.
+To perform the calibration step which is critical in ensuring the accuracy and reliability of our focus stabilization systems (especially when accounting for different optical parameters such as objective lenses' numerical aperture and astigmatism values), a Z image stack was captured to establish a calibration curve that maps the relationship between focal plane position and the corresponding correction needed for optimal focus stabilization. The scan range and step size of the Z stack were carefully chosen to ensure that the entire range of astigmatism was covered, thereby encompassing the full range of potential focal plane deviations. A three-axis piezoelectric stage (SLC-1780-D-S, SmarAct) equipped with an integrated position sensor to perform closed-loop movements, was used to control the position of the sample on the microscope stage in three dimensions.
 </p>
 
 <p align="justify">
-The data acquisition and instrument control was performed with MicroManager2.0. Data analysis and processing was performed with scripts writen in Python. 
+The data acquisition and instrument control was performed with MicroManager2.0. Data analysis and processing were performed with scripts written in Python. 
 </p>
 
- ## Results and Discussion
+## Results and Discussion
 Presented in SMLMS2023 in Vienna! Coming soon!
+
+### Nanometre localization precision of the astigmatic beam profile
+<p align="justify">
+It's essential to highlight that by imaging the reflected laser beam onto the camera, we benefit from an abundant supply of photons, resulting in improved localization precision. Nonetheless, this precision remains subject to limitations imposed by factors such as laser fluctuations, background noise, and camera noise. The speed at which these measurements can be performed also plays a crucial role, as there is a trade-off between localization speed and precision. The choice of algorithm should be guided by finding the optimal balance between these two factors.
+ </p>
+ 
+### Comparison with other focus stabilization approaches
 
 ## Acknowledgements
 <p align="justify">
