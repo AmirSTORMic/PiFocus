@@ -49,7 +49,8 @@ To compare the performance of PiFocus with other state-of-the-art focus stabiliz
 
 ## Discussion
 - Since we employ a light source with a near IR wavelength, we avoid interfering with the fluorescence emissions of diverse fluorescent samples.
-- Axial drift correction with a few nanometers precision
+- Axial drift correction with a few nanometers of precision
+- Field-dependent aberrations don't have any effects on our approach
 
 ## Acknowledgements
 <p align="justify">
