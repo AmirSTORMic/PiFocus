@@ -6,7 +6,7 @@
 
 # PiFocus: A universal focus stabilization approach using astigmatism
 <p align="justify">
-In this repository, you'll find a semi protocol detailing the process for setting up the PiFocus system. The collection encompasses designs, hardware specifications, and software components that are all listed below. Additionally, there are scripts available for replicating calibration outcomes, along with the necessary Python code for conducting autofocus operations and a Beanshell script to perform autofocusing through MicroManager. For a comprehensive understanding of the entire project, please refer to the provided documentation link.
+In this repository, you'll find a semi-protocol detailing the process for setting up the PiFocus system. The collection encompasses designs, hardware specifications, and software components that are all listed below. Additionally, there are scripts available for replicating calibration outcomes, along with the necessary Python code for conducting autofocus operations and a Beanshell script to perform autofocusing through MicroManager. For a comprehensive understanding of the entire project, please refer to the provided documentation link.
 </p>
 
 ## Set the Raspberry Pi and Camera
@@ -74,10 +74,10 @@ In the Raspberry Pi terminal, run the following commands.
   * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
   * Objective Lenses
     - 100X/1.35 Silicone
-    - 100X/1.10 WI
+    - 60X/1.49 Oil
     - 60X/1.27 WI
     - 40X/0.60 Air
-    - 20X/0.40 Air
+    - 10X/ 
 
 ## Codes
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
