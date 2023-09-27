@@ -37,7 +37,9 @@ Then go to the interfacing options. Enable the camera and I2C.
 
 If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
 
-`sudo i2cdetect -y 1`
+```
+sudo i2cdetect -y 1
+```
 
 In the Raspberry Pi terminal, run the following commands. 
 
