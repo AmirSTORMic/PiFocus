@@ -1,5 +1,6 @@
 [![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/AmirSTORMic/piFocus/blob/main/PiFocusDraft.md)
 [![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
+![Package](https://img.shields.io/pypi/v/piFocus?label=PiFocus)
 [![PyVersion](https://img.shields.io/pypi/pyversions/piFocus?label=python/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/)
 [![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
