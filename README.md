@@ -29,7 +29,9 @@ exit with ctrl-x and save with y.
 
 Next need to enable the camera and I2C interface. Go to the Raspberry Pi terminal and type:
 
-`sudo raspi-config` 
+```
+sudo raspi-config
+```
 
 Then go to the interfacing options. Enable the camera and I2C.
 
@@ -39,28 +41,38 @@ If you want to detect the DAC to make sure it is connected. Run in the Raspberry
 
 In the Raspberry Pi terminal, run the following commands. 
 
-`pip3 install opencv-python`
+```
+pip3 install opencv-python
+```
 
+```
+sudo apt-get install libcblas-dev
+```
 
-`sudo apt-get install libcblas-dev`
+```
+sudo apt-get install libhdf5-dev
+```
 
+```
+sudo apt-get install libhdf5-serial-dev
+```
 
-`sudo apt-get install libhdf5-dev`
+```
+sudo apt-get install libatlas-base-dev
+```
 
+```
+sudo apt-get install libjasper-dev
+```
 
-`sudo apt-get install libhdf5-serial-dev`
+```
+sudo apt-get install libqtgui4
+```
 
+```
+sudo apt-get install libqt4-test
+```
 
-`sudo apt-get install libatlas-base-dev`
-
-
-`sudo apt-get install libjasper-dev`
-
-
-`sudo apt-get install libqtgui4`
-
-
-`sudo apt-get install libqt4-test`
 
 ## Optomechanics and Optics
   * [Laser: 880 nm, 3 mW, Laser Diode, FC/PC](https://www.thorlabs.com/thorproduct.cfm?partnumber=LP880-SF3)
