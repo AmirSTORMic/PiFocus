@@ -1,7 +1,5 @@
 [![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://github.com/AmirSTORMic/piFocus/blob/main/PiFocusDraft.md)
 [![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
-
-[![PyVersion](https://img.shields.io/pypi/pyversions/piFocus?label=python)]((https://www.python.org/))
 [![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
@@ -14,17 +12,18 @@ In this repository, you'll find a semi-protocol detailing the process for settin
 ## Set the Raspberry Pi and Camera
 Manage to get the MAX5216 SPI DAC to work with the Raspberry Pi.
 
-`sudo apt-get install i2c-tools`
-
-`pip3 install adafruit-blinka`
-
-`sudo pip3 install adafruit-circuitpython-mcp4725`
+```
+sudo apt-get install i2c-tools
+pip3 install adafruit-blinka
+sudo pip3 install adafruit-circuitpython-mcp4725
+```
 
 Change the config file with: `sudo nano /boot/config.txt` and add the following lines to the end:
 
-`dtparam=i2c_arm=on`
-
-`dtparam=i2c1=on`
+```
+dtparam=i2c_arm=on
+dtparam=i2c1=on
+```
 
 exit with ctrl-x and save with y.
 
