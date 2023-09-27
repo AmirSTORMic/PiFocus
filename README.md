@@ -77,7 +77,7 @@ In the Raspberry Pi terminal, run the following commands.
     - 60X/1.49 Oil
     - 60X/1.27 WI
     - 40X/0.60 Air
-    - 10X/ 
+    - 10X/0.25 Air
 
 ## Codes
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
