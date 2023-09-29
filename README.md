@@ -41,8 +41,7 @@ If you want to detect the DAC to make sure it is connected. Run in the Raspberry
 sudo i2cdetect -y 1
 ```
 
-In the Raspberry Pi terminal, run the following commands. 
-
+To install opencv-python:
 ```
 pip3 install opencv-python 
 ```
@@ -51,6 +50,8 @@ or if you need to downgrade opencv:
 ```
 pip3 install git+https://github.com/opencv/opencv-python
 ```
+
+In the Raspberry Pi terminal, run the following commands:
 
 ```
 sudo apt-get install libcblas-dev
