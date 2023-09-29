@@ -44,7 +44,12 @@ sudo i2cdetect -y 1
 In the Raspberry Pi terminal, run the following commands. 
 
 ```
-pip3 install opencv-python
+pip3 install opencv-python 
+```
+or if you need to downgrade opencv:
+
+```
+pip3 install git+https://github.com/opencv/opencv-python
 ```
 
 ```
