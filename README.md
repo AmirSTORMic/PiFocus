@@ -43,7 +43,7 @@ sudo i2cdetect -y 1
 
 To install opencv-python:
 ```
-pip3 install opencv-python 
+suod apt install python3-opencv
 ```
 or if you need to downgrade opencv:
 
