@@ -1,9 +1,3 @@
-"""
-This code was used to obtain z-calibration curves for the datasets acquired on the implemented autofocus system. 
-Authors: Amir Rahmani, Tabitha Cox, Aleks Ponjavic
-Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
-"""
-
 import os
 import cv2
 import time
