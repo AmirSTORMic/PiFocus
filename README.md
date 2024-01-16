@@ -1,9 +1,9 @@
 [![DOI:10.1101/2024.01.15.575442](http://img.shields.io/badge/DOI-10.1101/2024.01.15.575442-B31B1B.svg)](<https://doi.org/10.1101/2024.01.15.575442>)
 [![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
-[![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
+[![CC BY 4.0][cc-by-shield]][cc-by]
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
-[![CC BY 4.0][cc-by-shield]][cc-by]
+
 
 # PiFocus: Acquisition, Analysis and Hardware Control
 <p align="justify">
