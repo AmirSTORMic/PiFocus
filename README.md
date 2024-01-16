@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
+[![CC BY 4.0][cc-by-shield]][cc-by]
 
 # PiFocus: Acquisition, Analysis and Hardware Control
 <p align="justify">
@@ -90,8 +91,7 @@ Python scripts that have been used for hardware control, data acquisition, and a
 ## Issues
 In the event that you come across any difficulties, please don't hesitate to file an issue and make sure to provide a thorough description of the problem.
 
-Shield: [![CC BY 4.0][cc-by-shield]][cc-by]
-
+## License
 This work is licensed under a
 [Creative Commons Attribution 4.0 International License][cc-by].
 
