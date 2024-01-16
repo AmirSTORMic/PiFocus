@@ -4,7 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 [![GitHub forks](https://img.shields.io/github/forks/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
 
-# PiFocus: Astigmatism-based focus stabilisation with universal objective lens compatibility, extended operating range and nanometre precision
+# PiFocus: Acquisition, Analysis and Hardware Control
 <p align="justify">
 In this repository, you'll find a semi-protocol detailing the process for setting up the PiFocus system. The collection encompasses designs, hardware specifications, and software components that are all listed below. Additionally, there are scripts available for replicating calibration outcomes, along with the necessary Python code for conducting autofocus operations and a Beanshell script to perform autofocusing through MicroManager. For a comprehensive understanding of the entire project, please refer to the provided documentation link.
 </p>
