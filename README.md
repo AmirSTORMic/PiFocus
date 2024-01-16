@@ -1,4 +1,4 @@
-[![Docs](https://img.shields.io/badge/documentation-link-blueviolet)](https://www.biorxiv.org/content/10.1101/2024.01.15.575442v1)
+[![DOI:10.1101/2024.01.15.575442](http://img.shields.io/badge/DOI-10.1101/2024.01.15.575442-<colour B31B1B>.svg)](<https://doi.org/10.1101/2024.01.15.575442>)
 [![Contributors](https://img.shields.io/github/contributors-anon/AmirSTORMic/PiFocus)](https://github.com/AmirSTORMic/PiFocus/graphs/contributors)
 [![License](https://img.shields.io/github/license/AmirSTORMic/PiFocus?color=Green)](https://github.com/AmirSTORMic/PiFocus/blob/main/LICENSE.md)
 [![GitHub stars](https://img.shields.io/github/stars/AmirSTORMic/PiFocus?style=social)](https://github.com/AmirSTORMic/PiFocus/)
