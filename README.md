@@ -82,16 +82,6 @@ sudo apt-get install libqt4-test
 ```
 
 
-## Optomechanics and Optics
-  * [Laser: 880 nm, 3 mW, Laser Diode, FC/PC]()
-  * [FC/PC Fiber Adapter with External SM1](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1FCA)
-  * [L1: f = 40.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-080-B)
-  * [L2: f = 500.0 mm, Ø1", N-BK7 Mounted Plano-Convex Round Cyl Lens](https://www.thorlabs.com/thorproduct.cfm?partnumber=LJ1144RM)
-  * [L3: f = 200.0 mm, Ø1" Achromatic Doublet, ARC: 650 - 1050 nm](https://www.thorlabs.com/thorproduct.cfm?partnumber=AC254-200-B)
-  * [Camera](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/)
-  * [Cube-Mounted BS]()
-  * Dichroic Mirror (12.5x17.6 mm, 800 nm, Shortpass Dichroic Mirror,	Edmund Optics	#69-196)
-
 ## Codes
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
   * [PiFocusASI](https://github.com/AmirSTORMic/PiFocus/master/PiFocusASI.py): To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
