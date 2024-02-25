@@ -34,7 +34,7 @@ import argparse
 
 def main():
         parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-	    parser.add_argument('--input', type = str, required = True)
+	parser.add_argument('--input', type = str, required = True)
         args = parser.parse_args()
 
         image = tifffile.imread(args.input)
