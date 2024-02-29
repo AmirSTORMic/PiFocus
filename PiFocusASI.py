@@ -1,25 +1,27 @@
-"""
-This code is used to performe z-stack acquisition for a specific scan range on the implemented focus stabilisation system with the ASI camera and CoreMorrow piezo stage. 
-Authors: Amir Rahmani, Aleks Ponjavic
-Affiliation: School of Physics and Astronomy, University of Leeds, Leeds, UK
-"""
-
 # Import packages that are required for the analysis.
 import os
 import cv2
 import sys
 import time
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.optimize import curve_fit
 
+try:
+    import matplotlib.pyplot as plt
+except ImportError:
+    plt = None
+
+try:
+    from scipy.optimize import curve_fit
+except ImportError:
+    print("Unable to import curve_fit from scipy.optimize.")
+    
 import argparse
 import zwoasi as asi # pip install zwoasi
 
 # env_filename = os.getenv('PiFocus_ASI')
 
 # Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
-def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
+def TwoD_Gaussian(xdata, i0, x0, y0, sX, sY, amp):
     (x, y) = xdata
     x0 = float(x0)
     y0 = float(y0)
@@ -27,7 +29,7 @@ def gaussianbeam(xdata, i0, x0, y0, sX, sY, amp):
     return eq.ravel()
 
 # -----------------------------------------------------------------------------
-def GCurFit(pathRoot, init_guess):
+def PiFocus_Calib(pathRoot, init_guess):
     x_sigma = []
     y_sigma = []
     i_values = []
@@ -53,12 +55,12 @@ def GCurFit(pathRoot, init_guess):
         h1, w1 = im.shape
         x, y = np.meshgrid(np.arange(w1),np.arange(h1))
         
-        popt, pcov = curve_fit(gaussianbeam, (x, y), im.ravel(), p0=init_guess, maxfev = 5000)
+        popt, pcov = curve_fit(TwoD_Gaussian, (x, y), im.ravel(), p0=init_guess, maxfev = 5000)
         
         init_guess.clear()
         init_guess.append(popt)
         
-        dd = gaussianbeam((x,y),*popt)
+        dd = TwoD_Gaussian((x,y),*popt)
         dd = dd.reshape(h1,w1)
         
         x_sigma.append(popt[3])
@@ -160,7 +162,7 @@ def AcqPiFocus(timepoints, TestNum):
         camera.set_image_type(asi.ASI_IMG_RAW16)
         camera.capture_video_frame(filename=filename)
         # Apply the fiiting algorithm to the frame that just captured
-        GCurFit(AcqPath+filename, [2,370,370,380,380,150])
+        PiFocus_Calib(AcqPath+filename, [2,370,370,380,380,150])
         if ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)>0)):
             StepperCtrl(NumSteps, False)
         elif ((np.subtract(x_sigma,y_sigma)>10) and (np.subtract(x_sigma,y_sigma)<0)):
