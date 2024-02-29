@@ -1,5 +1,6 @@
 ##########################################################################################
 """
+No analysis (fitting), only acquisition and hardware control. 
 This code is used to perform z-stack acquisition for a specific scan range on 
 the implemented focus stabilisation system using the CoreMorrow piezo stage. 
 PCP: Pi Camera Piezo
