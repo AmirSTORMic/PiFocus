@@ -1,56 +1,61 @@
-import os
-import cv2
-import timeit
-import cupy as cp
+# =============================================================================
+# Import Modules
+# =============================================================================
 import numpy as np
-
-try:
-    import matplotlib.pyplot as plt
-except ImportError:
-    plt = None
-    
-# Define the function that is going to be used to fit on the data. In our case, a 2D Gaussian profile. 
-def TwoD_Gaussian(xdata, i0, x0, y0, sX, sY, amp):
-    (x, y) = xdata
-    x0 = float(x0)
-    y0 = float(y0)
-    eq =  i0+amp*np.exp(-((x-x0)**2/2/sX**2 + (y-y0)**2/2/sY**2))
-    return eq.ravel()
-
+import os
+import tkinter as tk
+from tkinter import filedialog
+import tifffile
+import argparse
 try:
     from scipy.optimize import curve_fit
 except ImportError:
     print("Unable to import curve_fit from scipy.optimize.")
+# =============================================================================
+# Fitting function
+# =============================================================================
+# Define the function that is going to be used to fit on the data.
+# In our case, a 2D Gaussian. 
+def TwoD_Gaussian(xdata, I0, x0, y0, sX, sY, amp):
+    (x, y) = xdata
+    x0 = float(x0)
+    y0 = float(y0)
+    eq =  I0+amp*np.exp(-((x-x0)**2/2/sX**2 + (y-y0)**2/2/sY**2))
+    return eq.ravel()
 
-from tkinter import Tk
-from Tk.filedialog import askdirectory
+# =============================================================================
+# Choose the data file
+# =============================================================================
+def choose_the_data_file():
+    root = tk.Tk()
+    root.withdraw()  # Hide the main window
 
-Tk().withdraw()  # Prevents a full GUI window from appearing
-folder_path = askdirectory()  # Show the folder selection dialog and return the selected folder path
-print(f"Selected folder: {folder_path}")
+    file_path = filedialog.askopenfilename(title="Select the data file:")
+    if file_path:
+        print(f"Data file: {file_path}")
+        #filename = os.path.basename(file_path)
+    else:
+        raise IOError(f"No file selected!")
+    root.destroy()
+    return file_path
 
-import tifffile
-import argparse
-
-def main():
-        parser = argparse.ArgumentParser(formatter_class = argparse.ArgumentDefaultsHelpFormatter)
-	parser.add_argument('--input', type = str, required = True)
-        args = parser.parse_args()
-
-        image = tifffile.imread(args.input)
-        print('The data you are trying to analyse is: %s' % args.input)
-
-        num_frames = image.shape[0]  # Assuming the frames are along the first dimension
-        print(f"Number of frames: {num_frames}")
-
+# =============================================================================
+# Read the data
+# =============================================================================
+def read_data():
+    filename = choose_the_data_file()
+    data = tifffile.imread(filename)
+    num_Slices = data.shape[0]
+    h = data.shape[1]
+    w = data.shape[2]
+    x, y = np.meshgrid(np.arange(w),np.arange(h))
+    for i in range(num_Slices):
+        image = data[i,:,:]
+        I0 = np.mean(data[i,0,0])
+        init_guess = [I0, h/2, h/2, sX, sY, image.max()]
         x_sigma = []
         y_sigma = []
-        
-        im = np.asarray(img).astype(float)
-        h1, w1 = im.shape
-        x, y = np.meshgrid(np.arange(w1),np.arange(h1))
-        
-        popt, pcov = curve_fit(TwoD_Gaussian, (x, y), im.ravel(), p0=init_guess, maxfev = 150000)
+        popt, pcov = curve_fit(TwoD_Gaussian, (x, y), image.ravel(), p0=init_guess, maxfev = 150000)
         popt[3] = np.abs(popt[3])
         popt[4] = np.abs(popt[4])
         
@@ -97,6 +102,10 @@ def main():
     
         "Plot the curves"
         """ ------------------------------------------------------------------ """
+	try:
+    		import matplotlib.pyplot as plt
+	except ImportError:
+    		plt = None
         # with plt.xkcd(): 
         plt.plot(z_values, x_sigma, 'ro', markerfacecolor='none', markersize=4, label="x width")
         plt.plot(z_values, y_sigma, 'bo', markerfacecolor='none', markersize=4, label="y width")
