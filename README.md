@@ -19,7 +19,8 @@ sudo apt-get install i2c-tools
 pip3 install adafruit-blinka
 sudo pip3 install adafruit-circuitpython-mcp4725
 ```
-If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
+> [!TIP]
+> If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
 
 ```
 sudo i2cdetect -y 1
