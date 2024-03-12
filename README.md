@@ -49,7 +49,8 @@ To install opencv-python:
 ```
 suod apt install python3-opencv
 ```
-or if you need to downgrade opencv:
+> [!TIP]
+> if you need to downgrade opencv:
 
 ```
 pip3 install git+https://github.com/opencv/opencv-python
