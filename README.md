@@ -10,15 +10,22 @@
 The purpose of this repository is to provide a practical, step-by-step approach to doing your own focus stabilisation based on PiFocus technique. Specifically, you will find a method to set up the Raspberry Pi 4 (Model B), 16-bit DAC (AD5693, Adafruit), and 10-bit Raspberry Pi camera (Arducam OV9782). As part of our implementation, we will touch on the uses of different cameras as avenues into the adoptation of PiFocus. 
 </p>
 
-## Set the Raspberry Pi and Camera
-Manage to get the MAX5216 SPI DAC to work with the Raspberry Pi.
+## Set up the Raspberry Pi 4
+### 16-bit DAC
+To get the MAX5216 SPI DAC to work with the Raspberry Pi.
 
 ```
 sudo apt-get install i2c-tools
 pip3 install adafruit-blinka
 sudo pip3 install adafruit-circuitpython-mcp4725
 ```
+If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
 
+```
+sudo i2cdetect -y 1
+```
+
+### Raspberry Pi camera (Arducam OV9782)
 Change the config file with: `sudo nano /boot/config.txt` and add the following lines to the end:
 
 ```
@@ -36,11 +43,7 @@ sudo raspi-config
 
 Then go to the interfacing options. Enable the camera and I2C.
 
-If you want to detect the DAC to make sure it is connected. Run in the Raspberry Pi terminal:
-
-```
-sudo i2cdetect -y 1
-```
+### Install dependencies
 
 To install opencv-python:
 ```
@@ -85,8 +88,6 @@ sudo apt-get install libqt4-test
 
 ## Codes
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
-  * [PiFocusASI](https://github.com/AmirSTORMic/PiFocus/master/PiFocusASI.py): To acquire a Z scan data for the focus stabilisation path using the ASI camera and the CoreMorrow piezo stage. 
-  * [PiFocusPCP](https://github.com/AmirSTORMic/PiFocus/master/PiFocusPCP.py): To acquire Z scan data for the focus stabilisation path using the OV camera and the CoreMorrow piezo stage.
 
 ## Issues
 In the event that you come across any difficulties, please don't hesitate to file an issue and make sure to provide a thorough description of the problem.
