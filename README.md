@@ -7,7 +7,7 @@
 
 # PiFocus: Acquisition, Analysis and Hardware Control
 <p align="justify">
-In this repository, you'll find a semi-protocol detailing the process for setting up the PiFocus system. The collection encompasses designs, hardware specifications, and software components that are all listed below. Additionally, there are scripts available for replicating calibration outcomes, along with the necessary Python code for conducting autofocus operations and a Beanshell script to perform autofocusing through MicroManager. For a comprehensive understanding of the entire project, please refer to the provided documentation link.
+The purpose of this repository is to provide a practical, step-by-step approach to doing your own focus stabilisation based on PiFocus technique. Specifically, you will find a method to set up the Raspberry Pi 4 (Model B), 16-bit DAC (AD5693, Adafruit), and 10-bit Raspberry Pi camera (Arducam OV9782). As part of our implementation, we will touch on the uses of different cameras as avenues into the adoptation of PiFocus. 
 </p>
 
 ## Set the Raspberry Pi and Camera
