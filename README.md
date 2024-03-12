@@ -10,8 +10,8 @@
 The purpose of this repository is to provide a practical, step-by-step approach to doing your own focus stabilisation based on PiFocus technique. Specifically, you will find a method to set up the Raspberry Pi 4 (Model B), 16-bit DAC (AD5693, Adafruit), and 10-bit Raspberry Pi camera (Arducam OV9782). As part of our implementation, we will touch on the uses of different cameras as avenues into the adoptation of PiFocus. 
 </p>
 
-## Set up the Raspberry Pi 4
-### 16-bit DAC
+## 1. Set up the Raspberry Pi 4
+### 1.1. 16-bit DAC
 To get the MAX5216 SPI DAC to work with the Raspberry Pi.
 
 ```
@@ -26,7 +26,7 @@ sudo pip3 install adafruit-circuitpython-mcp4725
 sudo i2cdetect -y 1
 ```
 
-### Raspberry Pi camera (Arducam OV9782)
+### 1.2. Raspberry Pi camera (Arducam OV9782)
 Change the config file with: `sudo nano /boot/config.txt` and add the following lines to the end:
 
 ```
@@ -44,7 +44,7 @@ sudo raspi-config
 
 Then go to the interfacing options. Enable the camera and I2C.
 
-### Install dependencies
+### 1.3. Install dependencies
 
 To install opencv-python:
 ```
@@ -88,13 +88,13 @@ sudo apt-get install libqt4-test
 ```
 
 
-## Codes
+## 2. Codes
 Python scripts that have been used for hardware control, data acquisition, and analysis are available in this GitHub repository. The experimental data will be added soon.
 
-## Issues
+## 3. Issues
 In the event that you come across any difficulties, please don't hesitate to file an issue and make sure to provide a thorough description of the problem.
 
-## License
+## 4. License
 This work is licensed under a
 [Creative Commons Attribution 4.0 International License][cc-by].
 
