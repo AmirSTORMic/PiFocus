@@ -86,10 +86,8 @@ def read_data():
         # Convert the lists to arrays
         x1 = np.asarray(x_sigma)
         y1 = np.asarray(y_sigma)
-    
         DiffArr = y1 - x1
     
-        # Calculate the mean of the values in your array
         mean_DiffArr = sum(DiffArr) / len(DiffArr)
     
         # Calculate the variance of the values in your array
@@ -98,20 +96,21 @@ def read_data():
     
         # Take the square root of the variance to get the standard deviation
         sd_XY = var_DiffArr ** 0.5
-        print('This is the standard deviation:', sd_XY)
+        print('Optimized standard deviation:', sd_XY)
+        
+        # Error Handling for Division by Zero (if applicable)
+        if len(DiffArr) == 0:
+            print("Error: Division by zero encountered in variance calculation.")
+            sd_XY = 0  # Default or error value
     
-        "Plot the curves"
-        """ ------------------------------------------------------------------ """
-	try:
-    		import matplotlib.pyplot as plt
-	except ImportError:
-    		plt = None
-        # with plt.xkcd(): 
+"Plot the curves"
+""" ------------------------------------------------------------------ """
+def plot_curves(z_values, x_sigma, y_sigma):
+    try:
+        from matplotlib import pyplot as plt
         plt.plot(z_values, x_sigma, 'ro', markerfacecolor='none', markersize=4, label="x width")
         plt.plot(z_values, y_sigma, 'bo', markerfacecolor='none', markersize=4, label="y width")
         plt.plot(z_values, np.subtract(x_sigma,y_sigma), 'ko', markerfacecolor='none', markersize=4)
-        #slopeX, interceptX = np.polyfit(np.log(x_sigma), np.log(z_values), 1)
-        #plt.text(.5, 80, r'$\sigma_y=10,\ \sigma_x=10$')
         plt.grid(True)
         plt.minorticks_on()
         plt.xlabel("Z Values (µm)")
@@ -119,6 +118,5 @@ def read_data():
         plt.legend()
         plt.title("dLoc")
         plt.show()
-
-if __name__ == '__main__':
-	    main()
+    except ImportError:
+        print("matplotlib is not installed.")
